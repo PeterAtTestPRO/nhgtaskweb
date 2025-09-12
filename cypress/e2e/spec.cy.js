@@ -27,11 +27,11 @@ describe('template spec', () => {
     nhgSneltoetsPage.checkForTextGewensteLooptijd()
     nhgSneltoetsPage.fillGewensteLooptijd(360)
 
-    // nhgSneltoetsPage.checkForText
-    // nhgSneltoetsPage.fill
+    nhgSneltoetsPage.checkForTextJaarlijksErfpachtcanon
+    nhgSneltoetsPage.fillJaarlijksErfpachtcanon
 
-    // nhgSneltoetsPage.checkForText
-    // nhgSneltoetsPage.fill
+    nhgSneltoetsPage.checkForTextEnergielabel
+    nhgSneltoetsPage.selectFromListEnergieLabel()
 
     // nhgSneltoetsPage.checkForText
     // nhgSneltoetsPage.fill

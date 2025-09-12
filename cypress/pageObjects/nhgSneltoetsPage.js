@@ -8,6 +8,10 @@ export class NhgSneltoetsPage {
         .then((text) => text.trim())
         .should('eq', 'Algemene gegevens')
     }
+    
+    checkForTextEnergielabel() {
+      // to be done later
+    }
 
     checkForTextGewensteLooptijd() {
       cy.get(locatorSneltoetsAcceptatie.forTextGewensteLooptijd)
@@ -28,6 +32,10 @@ export class NhgSneltoetsPage {
         .invoke('text')
         .then((text) => text.trim())
         .should('eq', 'Hypotheekrente')
+    }
+
+    checkForTextJaarlijksErfpachtcanon() {
+      // to be done later
     }
 
     checkForTextNhgSneltoets() {
@@ -58,6 +66,10 @@ export class NhgSneltoetsPage {
         .should('eq', 'Waarvan in box 3')
     }
     
+    fillEnergielabel() {
+
+    }
+
     fillGewensteLooptijd(amount) {
       cy.get(locatorSneltoetsAcceptatie.forInputfieldGewensteLooptijd)
         .clear()
@@ -75,6 +87,10 @@ export class NhgSneltoetsPage {
         .clear()
         .type(amount)
     }
+    
+    fillJaarlijksErfpachtcanon() {
+      // to be done later
+    }
 
     fillWaarvanInBox3(amount) {
       cy.get(locatorSneltoetsAcceptatie.forInputfieldWaarvanInBox3)
@@ -86,7 +102,19 @@ export class NhgSneltoetsPage {
       cy.get('.mx-name-layoutGrid2 .mx-name-radioButtons1 .mx-radiogroup .radio input[value="false"]')
         .check({force: true})
         .should('be.checked');
-}
+    }
+
+    selectFromListEnergieLabel() {
+		cy.get('.mx-name-dropDown1 select option')
+			.should('have.length.greaterThan', 0)
+			.then((options) => {
+        let optionChosen = Math.floor((Math.random() * options.length - 1 ) + 1)
+        cy.log(optionChosen)
+        cy.get('.mx-name-dropDown1 select')
+					.select(optionChosen, { force: true })
+
+			})
+	}
 
 
 
