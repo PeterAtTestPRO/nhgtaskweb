@@ -1,28 +1,45 @@
-import * as locatorSneltoetsAcceptatie from '../locators/sneltoetsAcceptatie.json'
+import { NhgSneltoetsPage } from '../pageObjects/nhgSneltoetsPage'
 
 describe('template spec', () => {
+  const nhgSneltoetsPage = new NhgSneltoetsPage()
+
   it('passes', () => {
     cy.visit('https://mijn.nhg.nl')
 
-    cy.get(locatorSneltoetsAcceptatie.forTextSneltoetsAcceptatie)
-      .invoke('text')
-      .then((text) => text.trim())
-      .should('eq', 'Sneltoets Acceptatie')
+    nhgSneltoetsPage.checkForTextSneltoetsAcceptatie()
 
-    cy.get(locatorSneltoetsAcceptatie.forTextNhgSneltoets)
-      .invoke('text')
-      .then((text) => text.trim())
-      .should('eq', 'NHG Sneltoets')
-    
-    cy.get(locatorSneltoetsAcceptatie.forTextSprakeVanRestschuld)
-      .invoke('text')
-      .then((text) => text.trim())
-      .should('eq', 'Sprake van restschuld')
+    nhgSneltoetsPage.checkForTextNhgSneltoets()
 
-    cy.get('.mx-name-radioButtons1 .mx-radiogroup .radio input[value="false"]').eq(0)
-      .check({force: true})
-      .should('be.checked');
+    nhgSneltoetsPage.checkForTextSprakeVanRestschuld()
+    nhgSneltoetsPage.selectNoForSprakeVanRestschuld()
+  
+    nhgSneltoetsPage.checkForTextAlgemeneGegevens()
 
+    nhgSneltoetsPage.checkForTextGewenstLeenbedrag()
+    nhgSneltoetsPage.fillGewenstLeenbedrag(400000)  
 
+    nhgSneltoetsPage.checkForTextWaarvanInBox3()
+    nhgSneltoetsPage.fillWaarvanInBox3(100000)
+
+    nhgSneltoetsPage.checkForTextHypotheekrente()
+    nhgSneltoetsPage.fillHypotheekrente("4,25")
+
+    nhgSneltoetsPage.checkForTextGewensteLooptijd()
+    nhgSneltoetsPage.fillGewensteLooptijd(360)
+
+    // nhgSneltoetsPage.checkForText
+    // nhgSneltoetsPage.fill
+
+    // nhgSneltoetsPage.checkForText
+    // nhgSneltoetsPage.fill
+
+    // nhgSneltoetsPage.checkForText
+    // nhgSneltoetsPage.fill
+
+    // nhgSneltoetsPage.checkForText
+    // nhgSneltoetsPage.fill
+
+    // nhgSneltoetsPage.checkForText
+    // nhgSneltoetsPage.fill
   })
 })
