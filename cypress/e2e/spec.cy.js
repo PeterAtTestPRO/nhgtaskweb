@@ -1,10 +1,10 @@
 import { NhgSneltoetsPage } from '../pageObjects/nhgSneltoetsPage'
 
-describe('template spec', () => {
+describe('Sneltoets Acceptatie - Test scripts', () => {
   const nhgSneltoetsPage = new NhgSneltoetsPage()
 
-  it('passes', () => {
-    cy.visit('https://mijn.nhg.nl')
+  it('submits a request for a quick check calculation with "medeaanvrager" with "financiële verplichtingen".', () => {
+    cy.visit('/')
 
     nhgSneltoetsPage.checkForTextSneltoetsAcceptatie()
 
@@ -33,13 +33,17 @@ describe('template spec', () => {
     nhgSneltoetsPage.checkForTextEnergielabel
     nhgSneltoetsPage.selectFromListEnergieLabel()
 
-    // nhgSneltoetsPage.checkForText
-    // nhgSneltoetsPage.fill
+    // nhgSneltoetsPage.checkForTextGeboorteDatum
+    nhgSneltoetsPage.fillGeboorteDatum
+
+    // nhgSneltoetsPage.checkForTextBrutoJaarinkomen
+    nhgSneltoetsPage.fillBrutoJaarinkomen
 
     // nhgSneltoetsPage.checkForText
     // nhgSneltoetsPage.fill
 
-    // nhgSneltoetsPage.checkForText
-    // nhgSneltoetsPage.fill
+    nhgSneltoetsPage.checkForTextBereken()
+    nhgSneltoetsPage.clickButtonBereken()
+
   })
 })

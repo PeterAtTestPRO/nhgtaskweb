@@ -4,6 +4,7 @@
     "forInputfieldHypotheekrente": ".mx-name-textBox7 input.form-control",
     "forInputfieldWaarvanInBox3": ".mx-name-textBox9 input.form-control",
     "forTextAlgemeneGegevens": ".mx-name-container20 .mx-text.mx-name-text1",
+    "forTextBereken": ".mx-name-container7 .btn-berekenen",
     "forTextGewenstLeenbedrag": ".mx-name-textBox10 .control-label",
     "forTextGewensteLooptijd": ".mx-name-label1.control-label",
     "forTextHypotheekrente": ".mx-name-container11 .control-label",

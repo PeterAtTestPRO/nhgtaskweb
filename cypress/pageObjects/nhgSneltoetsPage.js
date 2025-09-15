@@ -1,4 +1,4 @@
-import * as locatorSneltoetsAcceptatie from '../locators/sneltoetsAcceptatie.json'
+import * as locatorSneltoetsAcceptatie from '../support/helpers/locators/sneltoetsAcceptatie.json'
 
 export class NhgSneltoetsPage {
 
@@ -9,10 +9,25 @@ export class NhgSneltoetsPage {
         .should('eq', 'Algemene gegevens')
     }
     
+    checkForTextBrutoJaarinkomen() {
+      // to be done later
+    }
+
+    checkForTextBereken() {
+      cy.get(locatorSneltoetsAcceptatie.forTextBereken)
+        .invoke('text')
+        .then((text) => text.trim())
+        .should('eq', 'Bereken')
+    }
+    
     checkForTextEnergielabel() {
       // to be done later
     }
 
+    checkForTextGeboorteDatum() {
+
+    }
+    
     checkForTextGewensteLooptijd() {
       cy.get(locatorSneltoetsAcceptatie.forTextGewensteLooptijd)
         .invoke('text')
@@ -65,8 +80,26 @@ export class NhgSneltoetsPage {
         .then((text) => text.trim())
         .should('eq', 'Waarvan in box 3')
     }
+
+    clickButtonBereken() {
+      cy.get(locatorSneltoetsAcceptatie.forTextBereken)
+        .click()
+    }
     
+    fillBrutoJaarinkomen() {
+      cy.get('.mx-name-dataView2 .mx-name-textBox28 input.form-control')
+        .clear()
+
+    }
+
     fillEnergielabel() {
+      // to be done later
+    }
+
+    fillGeboorteDatum() {
+      cy.get('.mx-name-dataView2kop .mx-compound-control input.form-control')
+      // cy.get('.mx-name-dataView2 .mx-compound-control input.form-control')
+        .type('06-03-1990')
 
     }
 
@@ -109,10 +142,8 @@ export class NhgSneltoetsPage {
 			.should('have.length.greaterThan', 0)
 			.then((options) => {
         let optionChosen = Math.floor((Math.random() * options.length - 1 ) + 1)
-        cy.log(optionChosen)
         cy.get('.mx-name-dropDown1 select')
 					.select(optionChosen, { force: true })
-
 			})
 	}
 
